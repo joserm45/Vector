@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Vect.cpp">
+    <ClCompile Include="Vect.h">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>

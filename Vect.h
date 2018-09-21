@@ -1,23 +1,23 @@
-
+#ifndef 
 
 template <class TYPE>
-class Vector {
+class vector {
 	
 private:
 
-		TYPE x, y, z = 0;
+		TYPE x, y, z;
 
 public:
-		Vector (TYPE vec) {
-			x = vec.x;
-			y = vec.y;
-			z = vec.z;
+		vector(const vector& vec_x, const vector& vec_y, const vector& vec_z) {
+			x = vec_x;
+			y = vec_y;
+			z = vec_z;
 
 	}
-		~Vector () {}
+		~vector() {}
 
 			
-		TYPE operator +(const TYPE& vec) const{
+		vector operator +(const vector& vec) const{
 			TYPE sum;
 
 			sum.x = x + vec.x;
@@ -27,8 +27,8 @@ public:
 			return (sum);
 		}
 
-		TYPE operator -(const TYPE& vec)const {
-			TYPE sum;
+		vector operator -(const vector& vec)const {
+			vector sum;
 
 			sum.x = x - vec.x;
 			sum.y = y - vec.y;
@@ -37,8 +37,8 @@ public:
 			return (sum);
 		}
 
-		void operator +=(const TYPE& vec) {
-			TYPE sum;
+		vector operator +=(const vector& vec) {
+			vector sum;
 
 			x  += vec.x;
 			y  += vec.y;
@@ -46,7 +46,7 @@ public:
 
 		}
 
-		TYPE operator -=(const TYPE& vec) {
+		vector operator -=(const vector& vec) {
 			TYPE sum;
 
 			x  -= vec.x;
@@ -56,7 +56,7 @@ public:
 			return (sum);
 		}
 
-		bool operator ==(const TYPE& vec) {
+		bool operator ==(const vector& vec) {
 			if (x == vec.x && y == vec.y && z == vec.z)
 				return 1;
 			else
@@ -64,10 +64,11 @@ public:
 		}
 
 
-		TYPE zero() {
+		void zero() {
 
-			TYPE vec = (0, 0, 0);
-			return vec;
+			x = (TYPE)0;
+			y = (TYPE)0;
+			z = (TYPE)0;
 		}
 
 		bool IsZero() {
@@ -78,17 +79,18 @@ public:
 				return 0;
 		}
 		
-		TYPE Normalize(const TYPE& vec) const {
-			TYPE normalizeVect = 0;
+		vector Normalize(const vector& vec) const {
+			vector normalizeVect = 0;
 
-			TYPE modulVect = sqrt(vec.x ^ 2 + vec.y ^ 2 + vec.z ^ 2);
+			vector modulVect = sqrt(vec.x ^ 2 + vec.y ^ 2 + vec.z ^ 2);
 
 			normalizeVect = vec / modulVect;
 
 			return normalizeVect;
 		}
 
-		/*TYPE DistanceTo(TYPE vec) const {
+		/*float DistanceTo(vector vec) const {
+		sqrt((vec.x - x)*(vec.x -x) +(vec.y-y)*(vec.y-y)+
 			
 		}*/
 };

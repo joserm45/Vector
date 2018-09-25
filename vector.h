@@ -1,5 +1,6 @@
 #ifndef VECT_H
 #define VECT_H
+#include <stdlib.h>
 
 template <class TYPE>
 class vector {
@@ -86,7 +87,7 @@ public:
 			vector modulVect = sqrt(vec.x ^ 2 + vec.y ^ 2 + vec.z ^ 2);
 
 			normalizeVect = vec / modulVect;
-
+			
 			return normalizeVect;
 		}
 
@@ -95,7 +96,12 @@ public:
 			
 		}
 
-		float DistanceTo(vector vec) const {
+		float DistanceSquared(vector vec) const {
+			
+
+			return abs((x - vec.x) + (y - vec.y));
+		}
+
 };
 
 #endif
